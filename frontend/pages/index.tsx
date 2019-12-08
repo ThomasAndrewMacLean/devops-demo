@@ -5,7 +5,7 @@ if (typeof window !== 'undefined') {
     fetch(`http://${document.location.hostname}:4000`)
         .then(x => x.text())
         .then(y => {
-            console.log(y);
+              console.log(y);
         });
 }
 
