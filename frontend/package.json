@@ -1,0 +1,28 @@
+{
+    "name": "frontend",
+    "version": "1.0.0",
+    "description": "frontend",
+    "repository": "github",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start",
+        "type-check": "tsc"
+    },
+    "keywords": [],
+    "author": "Thomas MacLean <hello@thomasmaclean.be> (https://thomasmaclean.be)",
+    "license": "MIT",
+    "dependencies": {
+        "@zeit/next-css": "^1.0.1",
+        "next": "^9.1.4",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+    },
+    "devDependencies": {
+        "@types/node": "^12.12.14",
+        "@types/react": "^16.9.15",
+        "@types/react-dom": "^16.9.4",
+        "typescript": "^3.7.3"
+    }
+}

@@ -1,19 +1,26 @@
 {
-  "name": "docker-nextjs",
+  "name": "devops-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "start": "docker-compose up",
+    "build": "docker-compose build",
+    "stop": "docker-compose down",
+    "clean": "docker system prune -af",
+    "clean:volumes": "docker volume prune -f"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasAndrewMacLean/devops-demo.git"
   },
   "keywords": [],
   "author": "Thomas MacLean <hello@thomasmaclean.be> (https://thomasmaclean.be)",
   "license": "MIT",
-  "dependencies": {
-    "next": "^9.1.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  }
+  "bugs": {
+    "url": "https://github.com/ThomasAndrewMacLean/devops-demo/issues"
+  },
+  "homepage": "https://github.com/ThomasAndrewMacLean/devops-demo#readme"
 }
