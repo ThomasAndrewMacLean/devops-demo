@@ -3,10 +3,5 @@ steps:
     - name: 'docker/compose:1.24.1'
       args: ['up', '-d']
     - name: 'gcr.io/cloud-builders/docker'
-      args:
-          [
-              'tag',
-              'devops-demo:latest',
-              'eu.gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA',
-          ]
+      args: ['build', '-t', 'eu.gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
 images: ['eu.gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
