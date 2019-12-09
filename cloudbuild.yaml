@@ -6,7 +6,7 @@ steps:
       args:
           [
               'tag',
-              'devops-demo:latest',
+              'gcr.io/$PROJECT_ID/docker:18.09.6',
               'eu.gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA',
           ]
 images: ['eu.gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
