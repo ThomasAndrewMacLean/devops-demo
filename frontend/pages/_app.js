@@ -20,8 +20,8 @@ class MyApp extends App {
     const modifiedPageProps = { ...pageProps, err }
 
     return  <ThemeProvider theme={theme}>
-    <Component {...modifiedPageProps} />
-  </ThemeProvider>
+                <Component {...modifiedPageProps} />
+            </ThemeProvider>
     
   }
 }

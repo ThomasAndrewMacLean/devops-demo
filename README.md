@@ -5,6 +5,9 @@
 -   https://dev.to/aprietof/nextjs--styled-components-the-really-simple-guide----101c
 -   https://github.com/zeit/next.js/blob/master/examples/with-styled-components
 -   https://medium.com/@uvictor/simple-firebase-authentication-with-next-js-using-hoc-higher-order-components-8e8931d25cfa
+- https://github.com/hanford/next-offline#usage
+- https://nextjs.org/features/progressive-web-apps#offline-support
+- https://medium.com/@kevinsimper/building-docker-images-with-docker-compose-on-google-cloud-container-builder-292b1eb3fd31
 
 GET STARTED:
 
@@ -18,4 +21,5 @@ TODO:
 -   add Firebase auth
 -   add airtable
 -   prettier + eslint in TSX files
+-   rebuild for new NPM package needed?
 -   add backendURL to helper file (check if on server or not + get url from .ENV)

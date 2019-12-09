@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NextPage } from 'next';
+import Link from 'next/link'
 import fetch from 'isomorphic-unfetch';
 import UserList from '../components/userList'
 import { UserType } from '../types/types';
 import { Title } from '../styles/header';
-
-
+import { Form, SubmitButton, TextInput } from '../styles/Form';
+import { Button, SecondaryButton } from '../styles/Button';
+import Layout from '../components/layout';
+import { auth, firebase } from '../firebase'
 
 
 const IndexPage: NextPage = (props : any) => {
@@ -16,10 +19,10 @@ const IndexPage: NextPage = (props : any) => {
 
    
     useEffect(() => {
-        if (typeof window !== 'undefined') {
+       
             setTitle("Hello Bothrs 👋")
            
-        }
+        
       }, []);
     
       const addUser = (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,23 +58,61 @@ const IndexPage: NextPage = (props : any) => {
            setUsers(oldNewUsers => [...oldNewUsers.filter(x => x._id !== _id)]);     
           })
     }
+
+    const handleSignIn = () => {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+        auth.signInWithPopup(provider)
+        .then(() => {
+        alert('You are signed In');
+        })
+        .catch(err => {
+        alert('OOps something went wrong check your console');
+        console.log(err);
+        });
+        }
+      const handleLogout = () => {
+        auth.signOut().then(function() {
+        alert('Logout successful');
+        }).catch(function(error) {
+        alert('OOps something went wrong check your console');
+        console.log(error);
+        });
+        }
     
-    return <> <Title>{title}</Title>
+    return <Layout> 
+    
+    <Title>{title}</Title>
         <UserList deleteUser={deleteUser} users={users} />
        
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repellendus esse aspernatur accusantium exercitationem? Libero nostrum maxime dolores harum aliquid, expedita accusantium atque ab placeat voluptatibus iste autem esse eaque.</p>
    
-           <form onSubmit={addUser}>
+           <Form onSubmit={addUser}>
                <label htmlFor="name">Name</label>
-                <input value={newUserName} onChange={changeName} type="text" name="name" id="userName"/>
-                <input type="submit" value="Add"/>
-           </form>
-    </>;
+                <TextInput value={newUserName} onChange={changeName} type="text" name="name" id="userName"/>
+                <SubmitButton type="submit" value="Add"/>
+           </Form>
+
+           <Button onClick={handleSignIn}>Sign In using google</Button>
+            <SecondaryButton onClick={handleLogout}>Logout</SecondaryButton>
+
+           <Link href="/admin">
+               <a>
+                    <h3>Go to Admin&rarr;</h3>
+               </a>
+            </Link>
+    </Layout>;
 };
 
 
 IndexPage.getInitialProps = async function(): Promise<{users: UserType[]}> {
-    const res = await fetch(`http://backend:4000/users`);
+
+    let backendUrl =`http://backend:4000/users`
+    
+    if (typeof window !== 'undefined') {
+        backendUrl = `http://localhost:4000/users`
+    }
+    const res = await fetch(backendUrl);
     const data = await res.json();
   
     console.log(`Show users fetched. Count: ${data.length}`);

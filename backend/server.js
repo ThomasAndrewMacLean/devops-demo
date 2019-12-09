@@ -16,6 +16,8 @@ app.use(logger);
 
 app.get('/', (req, res) => res.send('Hello World! 🚀'));
 
+app.get('/test', (req,res) => res.send(process.env.TEST));
+
 app.get('/users', (req, res) => {
     users.find({}).then(data => res.json(data));
 });

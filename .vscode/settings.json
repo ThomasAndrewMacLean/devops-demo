@@ -28,5 +28,4 @@
             "language": "typescriptreact"
         }
     ],
-    "prettier.eslintIntegration": true,
 }
