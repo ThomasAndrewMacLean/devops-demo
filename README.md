@@ -8,6 +8,7 @@
 - https://github.com/hanford/next-offline#usage
 - https://nextjs.org/features/progressive-web-apps#offline-support
 - https://medium.com/@kevinsimper/building-docker-images-with-docker-compose-on-google-cloud-container-builder-292b1eb3fd31
+- https://gabrieltanner.org/blog/docker-compose
 
 GET STARTED:
 
