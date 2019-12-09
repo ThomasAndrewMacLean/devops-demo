@@ -5,7 +5,8 @@
     "repository": "github",
     "main": "index.js",
     "scripts": {
-        "start": "node server"
+        "start": "node server",
+        "dev": "nodemon server"
     },
     "keywords": [],
     "author": "Thomas MacLean <hello@thomasmaclean.be> (https://thomasmaclean.be)",
@@ -17,6 +18,7 @@
         "volleyball": "^1.5.1"
     },
     "devDependencies": {
-        "eslint": "^6.7.2"
+        "eslint": "^6.7.2",
+        "nodemon": "^2.0.1"
     }
 }

@@ -28,4 +28,12 @@ app.post('/users', (req, res) => {
     }
 });
 
+app.delete('/users', (req,res) =>{
+    try {
+        users.remove({_id: req.body._id}).then(r => res.status(200).json(r));
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
